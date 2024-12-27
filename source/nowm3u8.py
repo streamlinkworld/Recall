@@ -8,7 +8,10 @@ def download_and_save_m3u8(m3u8_url, output_file):
         "Connection": "keep-alive",
         "Upgrade-Insecure-Requests": "1",
         "Referer": "https://www.nowtv.com.tr/",
-        "Cookie": "deine_cookies_hier"  # Füge die notwendigen Cookies hinzu
+        "Cookie": "deine_cookies_hier",  # Füge die notwendigen Cookies hinzu
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache",
+        "DNT": "1"  # Do Not Track-Header hinzufügen
     }
 
     try:
@@ -23,6 +26,6 @@ def download_and_save_m3u8(m3u8_url, output_file):
         print(f"ERROR: Fehler beim Herunterladen der Datei: {e}")
 
 if __name__ == "__main__":
-    output_file = "result/List/NOW.m3u8"
-    m3u8_url = "https://nowtv-live-ad.ercdn.net/nowtv/playlist.m3u8?st=dnY8hdEhMe8JYYkxbdfvHg&e=1735305811"
+    output_file = "result/List/playlist.m3u8"
+    m3u8_url = "https://path/to/your/input/playlist.m3u8"  # Stelle sicher, dass diese URL korrekt ist
     download_and_save_m3u8(m3u8_url, output_file)
