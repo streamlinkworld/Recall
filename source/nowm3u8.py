@@ -20,18 +20,11 @@ def download_and_save_m3u8(input_url, output_file):
         playlist_response.raise_for_status()
         print(f"DEBUG: Erfolgreicher Zugriff auf {input_url}")
 
-        # Extrahiere die M3U8-URLs aus der Playlist-Datei
-        m3u8_urls = [line.strip() for line in playlist_response.text.split('\n') if line.startswith("http")]
+        # Speichere die heruntergeladene Playlist-Datei
+        with open(output_file, 'w', encoding='utf-8') as file:
+            file.writelines(f"{line.strip()}\n" for line in playlist_response.text.split('\n'))
+        print(f"DEBUG: M3U8-Datei wurde in {output_file} gespeichert.")
 
-        # Lade jede M3U8-URL herunter und speichere den Inhalt
-        for m3u8_url in m3u8_urls:
-            response = requests.get(m3u8_url, headers=headers)
-            response.raise_for_status()
-            print(f"DEBUG: Erfolgreicher Zugriff auf {m3u8_url}")
-
-            with open(output_file, 'w', encoding='utf-8') as file:
-                file.writelines(f"{line.strip()}\n" for line in response.text.split('\n'))
-            print(f"DEBUG: M3U8-Datei wurde in {output_file} gespeichert.")
     except requests.exceptions.RequestException as e:
         print(f"ERROR: Fehler beim Herunterladen der Datei: {e}")
 
