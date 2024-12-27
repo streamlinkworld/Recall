@@ -1,11 +1,4 @@
 import requests
-import pycares
-
-def set_custom_dns():
-    # Setzt benutzerdefinierte DNS-Server mit pycares
-    channel = pycares.Channel()
-    channel.servers = ['8.8.8.8', '8.8.4.4']
-    return channel
 
 def download_and_save_m3u8(m3u8_url, output_file):
     headers = {
@@ -15,7 +8,7 @@ def download_and_save_m3u8(m3u8_url, output_file):
         "Connection": "keep-alive",
         "Upgrade-Insecure-Requests": "1",
         "Referer": "https://www.nowtv.com.tr/",
-        "Cookie": "deine_cookies_hier"
+        "Cookie": "deine_cookies_hier"  # Füge die notwendigen Cookies hinzu
     }
 
     try:
@@ -30,7 +23,6 @@ def download_and_save_m3u8(m3u8_url, output_file):
         print(f"ERROR: Fehler beim Herunterladen der Datei: {e}")
 
 if __name__ == "__main__":
-    channel = set_custom_dns()  # Setzt benutzerdefinierte DNS-Server
     output_file = "result/List/NOW.m3u8"
     m3u8_url = "https://nowtv-live-ad.ercdn.net/nowtv/playlist.m3u8?st=dnY8hdEhMe8JYYkxbdfvHg&e=1735305811"
     download_and_save_m3u8(m3u8_url, output_file)
