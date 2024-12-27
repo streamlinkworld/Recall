@@ -1,6 +1,6 @@
 #EXTM3U
 #EXT-X-STREAM-INF:BANDWIDTH=1280000
-http://trn03.tulix.tv/gt-atv-tv/tracks-v1a1/mono.m3u
+http://trn03.tulix.tv/gt-atv-tv/tracks-v1a1/mono.m3u8
 #EXT-X-STREAM-INF:BANDWIDTH=1280000
 http://tgn.bozztv.com/trn03/gt-atv-tv/tracks-v1a1/mono.m3u8
 #EXT-X-STREAM-INF:BANDWIDTH=1280000
