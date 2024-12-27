@@ -26,6 +26,6 @@ def download_and_save_m3u8(m3u8_url, output_file):
         print(f"ERROR: Fehler beim Herunterladen der Datei: {e}")
 
 if __name__ == "__main__":
-    output_file = "result/List/playlist.m3u8"
-    m3u8_url = "https://path/to/your/input/playlist.m3u8"  # Stelle sicher, dass diese URL korrekt ist
+    output_file = "result/List/NOW.m3u8"
+    m3u8_url = "https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/result/List/playlist.m3u8"
     download_and_save_m3u8(m3u8_url, output_file)
