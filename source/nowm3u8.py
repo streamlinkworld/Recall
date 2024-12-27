@@ -1,6 +1,6 @@
 import requests
 
-def download_and_save_m3u8(input_url, output_file):
+def download_and_save_m3u8(m3u8_url, output_file):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
@@ -15,20 +15,17 @@ def download_and_save_m3u8(input_url, output_file):
     }
 
     try:
-        # Lade den Inhalt der Playlist-URL herunter
-        playlist_response = requests.get(input_url, headers=headers)
-        playlist_response.raise_for_status()
-        print(f"DEBUG: Erfolgreicher Zugriff auf {input_url}")
+        response = requests.get(m3u8_url, headers=headers)
+        response.raise_for_status()
+        print(f"DEBUG: Erfolgreicher Zugriff auf {m3u8_url}")
 
-        # Speichere die heruntergeladene Playlist-Datei
         with open(output_file, 'w', encoding='utf-8') as file:
-            file.writelines(f"{line.strip()}\n" for line in playlist_response.text.split('\n'))
+            file.writelines(f"{line.strip()}\n" for line in response.text.split('\n'))
         print(f"DEBUG: M3U8-Datei wurde in {output_file} gespeichert.")
-
     except requests.exceptions.RequestException as e:
         print(f"ERROR: Fehler beim Herunterladen der Datei: {e}")
 
 if __name__ == "__main__":
-    input_url = "https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/result/List/playlist.m3u8"
+    m3u8_url = "https://nowtv-live-ad.ercdn.net/nowtv/playlist.m3u8?st=fNnuSeiTM-71rJB5MFfSFg&e=1735317265"
     output_file = "result/List/NOW.m3u8"
-    download_and_save_m3u8(input_url, output_file)
+    download_and_save_m3u8(m3u8_url, output_file)
