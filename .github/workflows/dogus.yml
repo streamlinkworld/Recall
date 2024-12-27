@@ -1,0 +1,57 @@
+name: DOGUS  # Name des Workflows
+
+on:
+  schedule:
+    - cron: '16 */4 * * *'  # Zeitplan für den Workflow (alle 10 Stunden zur Minute 16)
+  workflow_dispatch:  # Manueller Auslöser für den Workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Ausführungsumgebung für den Job
+
+    steps:
+      - uses: actions/checkout@v3  # Repository auschecken
+
+      - name: config  # Git-Konfiguration
+        run: |
+          git config --global user.email "<>"
+          git config --global user.name "ntvtr bot"
+
+      - name: Set up Python  # Python einrichten
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Python-Version
+
+      - name: Install dependencies  # Abhängigkeiten installieren
+        run: |
+          python -m pip install --upgrade pip  # Pip aktualisieren
+          
+      - name: Install requests module  # Requests-Modul installieren
+        run: python3 -m pip install requests
+
+      - name: Execute Python script  # Python-Skript ausführen
+        run: python3 source/dogus.py
+
+      - name: Check directory content before git add  # Überprüfen des Verzeichnisinhalts vor dem git add
+        run: |
+          echo "Verzeichnisinhalt vor dem git add:"
+          ls -la result/List  # Verzeichnisinhalt auflisten
+
+      - name: git add  # Generierte Dateien zu git hinzufügen
+        run: |
+          git add result/List/NTV.m3u8
+          git add result/List/STAR.m3u8
+          git add result/List/EuroStar.m3u8
+          ls -la result/List  # Verzeichnisinhalt auflisten, um sicherzustellen, dass die Datei erstellt wurde
+
+      - name: Check git status  # Git-Status überprüfen
+        run: |
+          git status  # Git-Status überprüfen
+          git diff  # Änderungen anzeigen
+
+      - name: Commit & push  # Änderungen committen und pushen
+        run: |
+          git pull origin main  # Neueste Änderungen abrufen
+          git add result/List/NTV.m3u8 result/List/STAR.m3u8 result/List/EuroStar.m3u8  # Sicherstellen, dass die Dateien hinzugefügt werden
+          git commit -m "ntvtr aktualisiert" || echo "Keine Änderungen zum Committen"  # Änderungen committen
+          git push origin main || echo "Keine Änderungen zum Pushen"  # Änderungen pushen

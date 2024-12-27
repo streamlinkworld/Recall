@@ -1,0 +1,51 @@
+name: CINER # Name des Workflows
+
+on:
+  schedule:
+    - cron: '10 */2 * * *'  # Zeitplan für den Workflow (alle 3 Stunden zur Minute 10)
+  workflow_dispatch:  # Manueller Auslöser des Workflows
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Ausführungsumgebung für den Job
+
+    steps:
+      - uses: actions/checkout@v3  # Repository auschecken
+
+      - name: config  # Git-Konfiguration
+        run: |
+          git config --global user.email "<>"
+          git config --global user.name "playlist bot"
+
+      - name: Set up Python  # Python einrichten
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Python-Version
+
+      - name: Install dependencies  # Abhängigkeiten installieren
+        run: |
+          python -m pip install --upgrade pip  # Pip aktualisieren
+
+      - name: Install requests and streamlink modules  # Requests und Streamlink Module installieren
+        run: python3 -m pip install requests streamlink  # Installiert die Module requests und streamlink
+
+      - name: Execute ciner.py script  # ciner.py Skript ausführen
+        run: python3 source/ciner.py  # Führt das Python-Skript aus
+
+      - name: git add  # Änderungen zu git hinzufügen
+        run: |
+          git add result/List/SHWTR.m3u8
+          git add result/List/HT.m3u8
+          git add result/List/SHOWMAX.m3u8
+          ls -la result/List  # Verzeichnisinhalt auflisten, um sicherzustellen, dass die Dateien erstellt wurden
+
+      - name: Check git status  # Git-Status überprüfen
+        run: |
+          git status  # Git-Status überprüfen
+          git diff  # Änderungen anzeigen
+
+      - name: Commit & push  # Änderungen committen und pushen
+        run: |
+          git pull origin main  # Neueste Änderungen abrufen
+          git commit -m "playlists aktualisiert" || echo "Keine Änderungen zum Committen"  # Änderungen committen
+          git push origin main || echo "Keine Änderungen zum Pushen"  # Änderungen pushen
