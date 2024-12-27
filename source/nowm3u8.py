@@ -1,15 +1,4 @@
 import requests
-import socket
-
-def set_custom_dns():
-    # Setzt benutzerdefinierte DNS-Server
-    dns_servers = ['8.8.8.8', '8.8.4.4']
-    original_getaddrinfo = socket.getaddrinfo
-
-    def getaddrinfo_with_custom_dns(host, port, family=0, type=0, proto=0, flags=0):
-        return original_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
-
-    socket.getaddrinfo = getaddrinfo_with_custom_dns
 
 def download_and_save_m3u8(m3u8_url, output_file):
     headers = {
@@ -34,7 +23,6 @@ def download_and_save_m3u8(m3u8_url, output_file):
         print(f"ERROR: Fehler beim Herunterladen der Datei: {e}")
 
 if __name__ == "__main__":
-    set_custom_dns()  # Setzt benutzerdefinierte DNS-Server
     output_file = "result/List/NOW.m3u8"
     m3u8_url = "https://nowtv-live-ad.ercdn.net/nowtv/playlist.m3u8?st=dnY8hdEhMe8JYYkxbdfvHg&e=1735305811"
     download_and_save_m3u8(m3u8_url, output_file)
