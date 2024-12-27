@@ -16,12 +16,16 @@ def download_and_save_m3u8(m3u8_url, output_file):
     }
 
     try:
+        # Lade die M3U8-Datei herunter
         response = requests.get(m3u8_url, headers=headers)
         response.raise_for_status()
         print(f"DEBUG: Erfolgreicher Zugriff auf {m3u8_url}")
 
+        # Bestimme die Basis-URL
         base_url = m3u8_url.rsplit('/', 1)[0] + '/'
         lines = response.text.split('\n')
+
+        # Speichere die bearbeitete M3U8-Datei mit ergänzten URLs
         with open(output_file, 'w', encoding='utf-8') as file:
             for line in lines:
                 if line.startswith("#") or line.strip() == "":
