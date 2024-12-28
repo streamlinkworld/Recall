@@ -5,13 +5,6 @@ https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/result/
 #EXTINF:+1 tvg-logo="https://i.ibb.co/kxjKk89/showmax.png",SHOW MAX
 https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/result/List/SHOWMAX.m3u8
 
-#EXTINF:+1  tvg-id="HABERTURK.tr" tvg-logo="https://i.ibb.co/wdwm0fn/haberturk.png", HABER TURK 
-https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/result/List/HT.m3u8
-
-#EXTINF:+1 tvg-id="BloombergHT.tr" tvg-logo="https://i.ibb.co/HXKrJRC/blght22.png" ,Bloomberg HT 
-
-
-
 #EXTINF:+1 tvg-logo="https://i.ibb.co/9c7MvWX/ntv.png" tvg-name="NTV" ,NTV
 https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/result/List/NTV.m3u8
 
