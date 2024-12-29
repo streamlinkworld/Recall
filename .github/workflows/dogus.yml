@@ -1,8 +1,8 @@
 name: DOGUS  # Name des Workflows
 
 on:
-  schedule:
-    - cron: '16 */4 * * *'  # Zeitplan für den Workflow (alle 10 Stunden zur Minute 16)
+ schedule:
+    - cron: '15 */3 * * *'  # Zeitplan für den Workflow (alle 3 Stunden zur Minute 10)
   workflow_dispatch:  # Manueller Auslöser für den Workflow
 
 jobs:
