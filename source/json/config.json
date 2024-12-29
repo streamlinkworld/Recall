@@ -46,11 +46,6 @@
       "url": "https://www.twitch.tv/hurturktv"
     },
     {
-      "name": "NTV",
-      "slug": "ntv",
-      "url": "https://www.ntv.com.tr/canli-yayin/ntv?youtube=true"
-    },
-    {
       "name": "Show Max",
       "slug": "showmax",
       "url": "http://showmax.com.tr/canliyayin"
