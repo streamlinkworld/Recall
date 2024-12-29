@@ -30,7 +30,7 @@ jobs:
         run: python3 -m pip install requests
 
       - name: Execute Python script  # Python-Skript ausführen
-        run: python3 source/dogus.py
+        run: python3 source/py/dogus.py
 
       - name: Check directory content before git add  # Überprüfen des Verzeichnisinhalts vor dem git add
         run: |
