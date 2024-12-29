@@ -2,7 +2,7 @@ name: Uni
 
 on:
   schedule:
-    - cron: '0 */1 * * *'  # Einmal stündlich ausführen
+    - cron: '0 */3 * * *'  # 
   pull_request:
     branches: [ master ]
   workflow_dispatch:
