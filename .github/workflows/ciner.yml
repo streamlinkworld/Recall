@@ -1,8 +1,8 @@
-name: CINER
+name: CINER  # Name des Workflows
 
 on:
   schedule:
-    - cron: '55 */1 * * *'  # Zeitplan für den Workflow (alle 3 Stunden zur Minute 10)
+    - cron: '5 * * * *'  # Zeitplan für den Workflow (jede Stunde zur Minute 5)
   workflow_dispatch:  # Manueller Auslöser des Workflows
 
 jobs:
