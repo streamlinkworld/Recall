@@ -24,12 +24,12 @@ def info_to_text(stream_info, url):
     return text
 
 def main():
-    # Loading config file
+    # Lade die Konfigurationsdatei
     f = open(sys.argv[1], "r")
     config = json.load(f)
 
-    # Getting output options and creating folders
-    folder_name = config["output"]["folder"]
+    # Erstellen der Ausgabeverzeichnisse
+    folder_name = "result/List/uni"
     best_folder_name = config["output"]["bestFolder"]
     master_folder_name = config["output"]["masterFolder"]
     current_dir = os.getcwd()
@@ -41,18 +41,18 @@ def main():
 
     channels = config["channels"]
     for channel in channels:
-        # Get streams and playlists
+        # Abrufen der Streams und Playlists
         try:
             url = channel["url"]
             streams = streamlink.streams(url)
             playlists = streams['best'].multivariant.playlists
 
-            # Text preparation
+            # Vorbereitung des Textes
             previous_res_height = 0
             master_text = ''
             best_text = ''
 
-            # Check http/https options
+            # Überprüfen der HTTP/HTTPS-Optionen
             http_flag = False
             if url.startswith("http://"):
                 plugin_name, plugin_type, given_url  = streamlink.session.Streamlink().resolve_url(url)
@@ -61,7 +61,7 @@ def main():
             for playlist in playlists:
                 uri = playlist.uri
                 info = playlist.stream_info
-                # Sorting sub-playlist based on 
+                # Sortierung der Unter-Playlists basierend auf der Auflösung
                 if info.video != "audio_only": 
                     sub_text = info_to_text(info, uri)
                     if info.resolution.height > previous_res_height:
@@ -71,7 +71,7 @@ def main():
                         master_text = master_text + sub_text
                     previous_res_height = info.resolution.height
             
-            # Necessary values for HLS
+            # Notwendige Werte für HLS
             if master_text:
                 if streams['best'].multivariant.version:
                     master_text = '#EXT-X-VERSION:' + str(streams['best'].multivariant.version) + "\n" + master_text
@@ -79,28 +79,27 @@ def main():
                 master_text = '#EXTM3U\n' + master_text
                 best_text = '#EXTM3U\n' + best_text
 
-            # HTTPS -> HTTP for cinergroup plugin
+            # HTTPS -> HTTP für cinergroup-Plugin
             if http_flag:
                 if plugin_name == "cinergroup":
                     master_text = master_text.replace("https://", "http://")
                     best_text = best_text.replace("https://", "http://")
 
-            # File operations
+            # Dateioperationen
             master_file_path = os.path.join(master_folder, channel["slug"] + ".m3u8")
             best_file_path = os.path.join(best_folder, channel["slug"] + ".m3u8")
 
             if master_text:
-                master_file = open(master_file_path, "w+")
-                master_file.write(master_text)
-                master_file.close()
+                with open(master_file_path, "w+") as master_file:
+                    master_file.write(master_text)
 
-                best_file = open(best_file_path, "w+")
-                best_file.write(best_text)
-                best_file.close()
+                with open(best_file_path, "w+") as best_file:
+                    best_file.write(best_text)
                 
             else:
                 if os.path.isfile(master_file_path):
                     os.remove(master_file_path)
+                if os.path.isfile(best_file_path):
                     os.remove(best_file_path)
         except Exception as e:
             master_file_path = os.path.join(master_folder, channel["slug"] + ".m3u8")
@@ -111,4 +110,4 @@ def main():
                 os.remove(best_file_path)
 
 if __name__=="__main__": 
-    main() 
+    main()
