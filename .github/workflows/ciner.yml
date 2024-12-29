@@ -30,7 +30,7 @@ jobs:
         run: python3 -m pip install requests streamlink  # Installiert die Module requests und streamlink
 
       - name: Execute ciner.py script  # ciner.py Skript ausführen
-        run: python3 source/ciner.py  # Führt das Python-Skript aus
+        run: python3 source/py/ciner.py  # Führt das Python-Skript aus
 
       - name: git add  # Änderungen zu git hinzufügen
         run: |
