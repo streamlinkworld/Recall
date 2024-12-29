@@ -6,14 +6,9 @@
   },
   "channels": [
     {
-      "name": "NOW TV",
-      "slug": "NOW",
+      "name": "NOW",
+      "slug": "now",
       "url": "https://www.nowtv.com.tr/canli-yayin"
-    },
-    {
-      "name": "BFZ Türk",
-      "slug": "bfzturk",
-      "url": "https://www.twitch.tv/bfzturk"
     },
     {
       "name": "Euro Star",
@@ -21,29 +16,34 @@
       "url": "https://eurostartv.com.tr/canli-izle"
     },
     {
-      "name": "FB TV",
-      "slug": "fbtv",
-      "url": "https://www.dailymotion.com/video/x21oo10"
+      "name": "DM TV",
+      "slug": "dmtv",
+      "url": "https://www.dailymotion.com/video/xqjkfz"
     },
     {
-      "name": "Fox TV",
-      "slug": "foxtv",
-      "url": "https://www.nowtv.com.tr/canli-yayin"
+      "name": "Habertürk",
+      "slug": "haberturk",
+      "url": "https://www.haberturk.com/canliyayin"
     },
     {
-      "name": "Haber Ajans Press",
-      "slug": "haberajanspress",
-      "url": "https://www.twitch.tv/haberajanspress"
+      "name": "Hürtürk TV",
+      "slug": "hurturktv",
+      "url": "https://www.twitch.tv/hurturktv"
     },
     {
-      "name": "Kanal 7 Avrupa",
-      "slug": "kanal7avrupa",
-      "url": "https://www.dailymotion.com/video/x8863vn"
+      "name": "NTV",
+      "slug": "ntv",
+      "url": "https://www.ntv.com.tr/canli-yayin/ntv?youtube=true"
     },
     {
-      "name": "Serhat TV",
-      "slug": "serhattv",
-      "url": "https://www.twitch.tv/serhattvlive"
+      "name": "Show Max",
+      "slug": "showmax",
+      "url": "http://showmax.com.tr/canliyayin"
+    },
+    {
+      "name": "Show Türk",
+      "slug": "showturk",
+      "url": "https://www.showturk.com.tr/canli-yayin/showturk"
     }
   ]
 }
