@@ -6,26 +6,6 @@
   },
   "channels": [
     {
-      "name": "NOW",
-      "slug": "now",
-      "url": "https://www.nowtv.com.tr/canli-yayin"
-    },
-    {
-      "name": "Euro Star",
-      "slug": "eurostar",
-      "url": "https://eurostartv.com.tr/canli-izle"
-    },
-    {
-      "name": "Star",
-      "slug": "star",
-      "url": "https://www.startv.com.tr/canli-yayin"
-    },
-    {
-      "name": "BloombergHT",
-      "slug": "bloombergHT",
-      "url": "https://www.bloomberght.com/tv"
-    },
-    {
       "name": "DM TV",
       "slug": "dmtv",
       "url": "https://www.dailymotion.com/video/xqjkfz"
