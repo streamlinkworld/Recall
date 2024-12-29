@@ -22,6 +22,12 @@ https://ciner-live.daioncdn.net/showtv/showtv.m3u8
 #EXTINF:+1 tvg-id="Show.TV..tr" tvg-logo="https://i.ibb.co/BrGNZJ4/showtv.png",SHOW TV
 https://bloomberght-live.daioncdn.net/showtv/showtv.m3u8
 
+#EXTINF:+1 tvg-id="ShowTurk.tr" tvg-logo="https://i.ibb.co/WvhGGP0/showturk1.png", SHOW TURK 
+https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/result/List/SHWTR.m3u8
+
+#EXTINF:+1 tvg-logo="https://i.ibb.co/kxjKk89/showmax.png",SHOW MAX
+https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/result/List/SHOWMAX.m3u8
+
 #EXTINF:+1 tvg-id="Kanal.D..tr" tvg-logo="https://i.ibb.co/s9mVqWH/kanald.png",KANAL D 
 https://demiroren-live.daioncdn.net/kanald/kanald_1080p.m3u8
 #EXTINF:+1 tvg-id="Kanal.D..tr" tvg-logo="https://i.ibb.co/s9mVqWH/kanald.png",KANAL D
@@ -55,14 +61,8 @@ http://dygvideo.dygdigital.com/live/hls/puhustardai?m3u8
 #EXTINF:+1 tvg-id="Star.TV..tr" tvg-logo="https://i.ibb.co/DYyDzGV/star22tv.png", STAR 
 #https://dogus-live.daioncdn.net/startv/startv.m3u8
 
-#EXTINF:+1 tvg-id="EuroStar.tr"  tvg-logo="https://i.ibb.co/Lg90xsB/eurostar22.png",EURO STAR 
-https://raw.githubusercontent.com/ipstreet312/freeiptv/master/ressources/tur/estar.m3u8
-
-#EXTINF:+1 tvg-id="ShowTurk.tr" tvg-logo="https://i.ibb.co/WvhGGP0/showturk1.png", SHOW TURK 
-https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/result/List/SHWTR.m3u8
-
-#EXTINF:+1 tvg-logo="https://i.ibb.co/kxjKk89/showmax.png",SHOW MAX
-https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/result/List/SHOWMAX.m3u8
+#EXTINF:+1 tvg-id="EuroStar.tr"  tvg-logo="https://i.ibb.co/Lg90xsB/eurostar22.png",EURO STAR
+https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/result/List/EuroStar.m3u8
 
 #EXTINF:+1 tvg-id="TV8..tr" tvg-logo="https://i.ibb.co/tXKXNDz/tv8.png",TV8 
 https://tv8-live.daioncdn.net/tv8/tv8.m3u8
@@ -83,8 +83,7 @@ https://livetv.radyotvonline.net/kanal7live/kanal7avr/chunklist.m3u8
 #EXTINF:+1 tvg-logo="https://i.ibb.co/9c7MvWX/ntv.png" tvg-name="NTV" ,NTV
 https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/result/List/NTV.m3u8
 
-#EXTINF:+1 tvg-id="EuroStar.tr"  tvg-logo="https://i.ibb.co/Lg90xsB/eurostar22.png",EURO STAR
-https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/result/List/EuroStar.m3u8
+
 
 
 
