@@ -57,12 +57,21 @@ def fetch_and_save_showturk():
 
     def create_m3u8_content(stream_url):
         stream_url_1080p = stream_url.replace("playlist.m3u8", "showturk_1080p.m3u8")
+        stream_url_720p = stream_url.replace("playlist.m3u8", "showturk_720p.m3u8")
+        stream_url_576p = stream_url.replace("playlist.m3u8", "showturk_576p.m3u8")
+        stream_url_360p = stream_url.replace("playlist.m3u8", "showturk_360p.m3u8")
         
         m3u8_content = [
             "#EXTM3U",
             "#EXT-X-VERSION:3",
             "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=3000000,RESOLUTION=1920x1080",
-            stream_url_1080p
+            stream_url_1080p,
+            "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1500000,RESOLUTION=1280x720",
+            stream_url_720p,
+            "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1200000,RESOLUTION=1024x576",
+            stream_url_576p,
+            "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=600000,RESOLUTION=640x360",
+            stream_url_360p
         ]
         return "\n".join(m3u8_content)
 
@@ -98,7 +107,9 @@ def fetch_and_save_haberturk():
 
     # Erstellen der URLs für verschiedene Auflösungen und Bandbreiten
     urls = {
-        "1080p": erstrm  # Beste Qualität
+        "1080p": erstrm,  # Beste Qualität
+        "720p": erstrm.replace("1080", "720"),
+        "480p": erstrm.replace("1080", "480")
     }
 
     # Erstellen des M3U8-Inhalts ohne Zeitstempel
@@ -108,6 +119,12 @@ def fetch_and_save_haberturk():
 
     output += f"""#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=3000000,RESOLUTION=1920x1080
 {urls["1080p"]}
+"""
+    output += f"""#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1500000,RESOLUTION=1280x720
+{urls["720p"]}
+"""
+    output += f"""#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=900000,RESOLUTION=854x480
+{urls["480p"]}
 """
 
     # Speichern des M3U8-Inhalts in einer Datei
