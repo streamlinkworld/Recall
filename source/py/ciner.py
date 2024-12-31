@@ -1,4 +1,3 @@
-
 import requests
 import re
 import json
@@ -57,12 +56,18 @@ def fetch_and_save_showturk():
             raise Exception("Live URL-Muster im Inhalt nicht gefunden.")
 
     def create_m3u8_content(stream_url):
+        stream_url_1080p = stream_url.replace("playlist.m3u8", "showturk_1080p.m3u8")
+        stream_url_720p = stream_url.replace("playlist.m3u8", "showturk_720p.m3u8")
         stream_url_576p = stream_url.replace("playlist.m3u8", "showturk_576p.m3u8")
         stream_url_360p = stream_url.replace("playlist.m3u8", "showturk_360p.m3u8")
         
         m3u8_content = [
             "#EXTM3U",
             "#EXT-X-VERSION:3",
+            "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=3000000,RESOLUTION=1920x1080",
+            stream_url_1080p,
+            "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1500000,RESOLUTION=1280x720",
+            stream_url_720p,
             "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1200000,RESOLUTION=1024x576",
             stream_url_576p,
             "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=600000,RESOLUTION=640x360",
