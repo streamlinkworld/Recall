@@ -1,0 +1,37 @@
+{
+    "main": {
+        "multivariantPlaylist": true
+    },
+    "playlist": {
+        "#EXTM3U": true,
+        "#EXT-X-VERSION": "3",
+        "#EXT-X-INDEPENDENT-SEGMENTS": true
+    },
+    "variantStreams": [
+        {
+            "#EXT-X-STREAM-INF": {
+                "AVERAGE-BANDWIDTH": "950000",
+                "BANDWIDTH": "1050000",
+                "RESOLUTION": "1280x720"
+            },
+            "URI": "https://nowtv-live-ad.ercdn.net/nowtv/nowtv_720p.m3u8?e=1736057189&st=w8_vBp6khvWULR2XsoHdUw"
+        },
+        {
+            "#EXT-X-STREAM-INF": {
+                "AVERAGE-BANDWIDTH": "700000",
+                "BANDWIDTH": "800000",
+                "RESOLUTION": "854x480"
+            },
+            "URI": "https://nowtv-live-ad.ercdn.net/nowtv/nowtv_480p.m3u8?e=1736057189&st=w8_vBp6khvWULR2XsoHdUw"
+        },
+        {
+            "#EXT-X-STREAM-INF": {
+                "AVERAGE-BANDWIDTH": "500000",
+                "BANDWIDTH": "550000",
+                "RESOLUTION": "640x360"
+            },
+            "URI": "https://nowtv-live-ad.ercdn.net/nowtv/nowtv_360p.m3u8?e=1736057189&st=w8_vBp6khvWULR2XsoHdUw"
+        }
+    ],
+    "mediaSegments": []
+}
