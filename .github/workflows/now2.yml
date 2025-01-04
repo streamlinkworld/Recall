@@ -30,11 +30,12 @@ jobs:
       run: python source/py/convert_json_to_m3u8.py
 
     - name: Commit and push M3U8 playlist
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
         git add source/json/test.m3u8
-        git commit -m 'Add generated test.m3u8'
+        git status
+        git commit -m 'Add generated test.m3u8' || echo "No changes to commit"
         git push origin main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
