@@ -27,7 +27,7 @@ jobs:
         pip install -r source/requirements/requirements.txt
 
     - name: Run conversion script
-      run: python source/py/convert_json_to_m3u8.py
+      run: python test.py
 
     - name: Upload M3U8 playlist
       uses: actions/upload-artifact@v3
