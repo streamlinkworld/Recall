@@ -6,7 +6,7 @@ import os
 from datetime import datetime
 
 # Basis-URLs für ShowTV, ShowTürk, ShowMax und Habertürk
-showtv_url = "https://ciner.daioncdn.net/showtv/showtv.m3u8?ce="
+showtv_url = "https://www.showtv.com.tr/canli-yayin/showtv"
 showturk_url = "https://www.showturk.com.tr/canli-yayin/showturk"
 showmax_url = "http://www.showmax.com.tr/canliyayin"
 haberturk_url = "https://www.haberturk.com/canliyayin"
