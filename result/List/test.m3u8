@@ -1,0 +1,9 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXTINF:-1 , fox
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=3000000,RESOLUTION=1920x1080
+https://nowtv-live-ad.ercdn.net/nowtv/playlist.m3u8?st=55HMjl2tdg9OS_a-Z1Twqg&e=1736013989
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1500000,RESOLUTION=1280x720
+https://nowtv-live-ad.ercdn.net/nowtv/playlist.m3u8?st=55HMjl2tdg9OS_a-Z1Twqg&e=1736013989
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=900000,RESOLUTION=854x480
+https://nowtv-live-ad.ercdn.net/nowtv/playlist.m3u8?st=55HMjl2tdg9OS_a-Z1Twqg&e=1736013989
