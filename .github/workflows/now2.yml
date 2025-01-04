@@ -19,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.x'  # Specify the Python version you need
+        python-version: '3.x'
 
     - name: Install dependencies
       run: |
@@ -27,10 +27,10 @@ jobs:
         pip install -r source/requirements/requirements.txt
 
     - name: Run conversion script
-      run: python test.py
+      run: python source/py/convert_json_to_m3u8.py
 
     - name: Upload M3U8 playlist
       uses: actions/upload-artifact@v3
       with:
         name: m3u8-playlist
-        path: playlist.m3u8
+        path: test.m3u8
