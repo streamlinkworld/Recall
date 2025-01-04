@@ -1,4 +1,4 @@
-name: Run Python Script
+name: Convert JSON to M3U8
 
 on:
   push:
@@ -9,15 +9,15 @@ on:
       - main
 
 jobs:
-  run-script:
+  convert-json:
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3  # Updated to the latest version
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v4  # Updated to the latest version
+      uses: actions/setup-python@v4
       with:
         python-version: '3.x'  # Specify the Python version you need
 
@@ -26,11 +26,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r source/requirements/requirements.txt
 
-    - name: Run Python script
-      run: python source/py/now2.py
+    - name: Run conversion script
+      run: python source/py/convert_json_to_m3u8.py
 
     - name: Upload M3U8 playlist
-      uses: actions/upload-artifact@v3  # Updated to the latest version
+      uses: actions/upload-artifact@v3
       with:
         name: m3u8-playlist
-        path: playlist2.m3u8  # New file path
+        path: playlist.m3u8
