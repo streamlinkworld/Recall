@@ -1,7 +1,7 @@
 import json
 
 # JSON-Datei lesen
-with open('playlist.json', 'r') as f:
+with open('source/json/now.json', 'r') as f:
     data = json.load(f)
 
 # M3U8-Playlist generieren
