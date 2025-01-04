@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HLS Player</title>
+</head>
+<body>
+    <video id="video" controls></video>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        var video = document.getElementById('video');
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource('https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/source/json/now.json');
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                video.play();
+            });
+        }
+    </script>
+</body>
+</html>
