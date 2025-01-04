@@ -6,7 +6,7 @@ import os
 from datetime import datetime
 
 # Basis-URLs für ShowTV, ShowTürk, ShowMax und Habertürk
-showtv_url = "https://www.showtv.com.tr/canli-yayin/showtv"
+showtv_url = "https://ciner.daioncdn.net/showtv/showtv.m3u8?ce="
 showturk_url = "https://www.showturk.com.tr/canli-yayin/showturk"
 showmax_url = "http://www.showmax.com.tr/canliyayin"
 haberturk_url = "https://www.haberturk.com/canliyayin"
@@ -18,25 +18,15 @@ def fetch_and_save_showtv():
         content = response.text
 
         # Suchen nach der m3u8-URL im Quellcode der Seite
-        match = re.search(r'ht_stream_m3u8":"(https?://[^\s]+\.m3u8)', content)
+        match = re.search(r'(https?://[^\s]+\.m3u8)', content)
         if match:
             m3u8_url = match.group(1)
-            m3u8_base_url = m3u8_url.rsplit("/", 1)[0]
-            m3u8_content = f"""
-#EXTM3U
-#EXT-X-VERSION:3
-#EXT-X-STREAM-INF:BANDWIDTH=2200000,AVERAGE-BANDWIDTH=2000000,RESOLUTION=1920x1080
-{m3u8_base_url}/showtv_1080p.m3u8
-#EXT-X-STREAM-INF:BANDWIDTH=1050000,AVERAGE-BANDWIDTH=950000,RESOLUTION=1280x720
-{m3u8_base_url}/showtv_720p.m3u8
-#EXT-X-STREAM-INF:BANDWIDTH=800000,AVERAGE-BANDWIDTH=700000,RESOLUTION=854x480
-{m3u8_base_url}/showtv_480p.m3u8
-#EXT-X-STREAM-INF:BANDWIDTH=550000,AVERAGE-BANDWIDTH=500000,RESOLUTION=640x360
-{m3u8_base_url}/showtv_360p.m3u8
-            """
+            m3u8_response = requests.get(m3u8_url)
+            m3u8_response.raise_for_status()
+            m3u8_content = m3u8_response.text
 
             with open("result/List/SHOWTV.m3u8", "w") as f:
-                f.write(m3u8_content.strip())
+                f.write(m3u8_content)
             print("m3u8-Inhalt für ShowTV erfolgreich erstellt.")
         else:
             print("m3u8-URL im Seiteninhalt nicht gefunden.")
@@ -195,4 +185,8 @@ def fetch_and_save_showmax():
 def main():
     fetch_and_save_showtv()
     fetch_and_save_showturk()
-    fetch_and_save_habert
+    fetch_and_save_haberturk()
+    fetch_and_save_showmax()
+
+if __name__ == "__main__":
+    main()
