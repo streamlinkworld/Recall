@@ -28,3 +28,9 @@ jobs:
 
     - name: Run Python script
       run: python source/py/now2.py
+
+    - name: Upload M3U8 playlist
+      uses: actions/upload-artifact@v2
+      with:
+        name: m3u8-playlist
+        path: playlist2.m3u8
