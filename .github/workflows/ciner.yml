@@ -37,6 +37,7 @@ jobs:
           git add result/List/SHWTR.m3u8
           git add result/List/HT.m3u8
           git add result/List/SHOWMAX.m3u8
+          git add result/List/SHOW.m3u8    
           ls -la result/List  # Verzeichnisinhalt auflisten, um sicherzustellen, dass die Dateien erstellt wurden
 
       - name: Check git status  # Git-Status überprüfen
