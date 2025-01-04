@@ -8,7 +8,7 @@ with open('source/json/test.json', 'r') as f:
 m3u8_playlist = data['playlist']
 
 # M3U8-Datei speichern
-with open('test.m3u8', 'w') as f:
+with open('source/json/test.m3u8', 'w') as f:
     f.write(m3u8_playlist)
 
 print("M3U8-Playlist erfolgreich generiert!")
