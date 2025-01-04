@@ -9,8 +9,9 @@ m3u8_playlist = "#EXTM3U\n"
 m3u8_playlist += "#EXT-X-VERSION:{}\n".format(data['playlist']['#EXT-X-VERSION'])
 m3u8_playlist += "#EXT-X-INDEPENDENT-SEGMENTS\n"
 
+# Durch die Stream-Varianten iterieren und Informationen direkt auslesen
 for stream in data['variantStreams']:
-    m3u8_playlist += "#EXT-X-STREAM-INF:PROGRAM-ID=2850,AVERAGE-BANDWIDTH={},BANDWIDTH={},RESOLUTION={}\n".format(
+    m3u8_playlist += "#EXT-X-STREAM-INF:PROGRAM-ID=1,AVERAGE-BANDWIDTH={},BANDWIDTH={},RESOLUTION={}\n".format(
         stream['#EXT-X-STREAM-INF']['AVERAGE-BANDWIDTH'],
         stream['#EXT-X-STREAM-INF']['BANDWIDTH'],
         stream['#EXT-X-STREAM-INF']['RESOLUTION']
