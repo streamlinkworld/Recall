@@ -10,9 +10,28 @@
         var video = document.getElementById('video');
         if (Hls.isSupported()) {
             var hls = new Hls();
-            hls.loadSource('https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/source/json/now.json');
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+            // Die URL zur JSON-Datei
+            var jsonUrl = 'https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/source/json/now.json';
+            
+            // JSON-Datei laden und Streams daraus lesen
+            fetch(jsonUrl)
+                .then(response => response.json())
+                .then(data => {
+                    var streamUrl = data.variantStreams[0].URI; // Die erste Stream-URL aus der JSON-Datei verwenden
+                    hls.loadSource(streamUrl);
+                    hls.attachMedia(video);
+                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                        video.play();
+                    });
+                })
+                .catch(error => {
+                    console.error('Fehler beim Laden der JSON-Datei:', error);
+                });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            // Fallback für Safari
+            var streamUrl = 'https://raw.githubusercontent.com/streamlinkworld/Recall/refs/heads/main/source/json/now.json';
+            video.src = streamUrl;
+            video.addEventListener('canplay', function() {
                 video.play();
             });
         }
