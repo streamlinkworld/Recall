@@ -1,9 +1,9 @@
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=5000000,RESOLUTION=1920x1080
-https://mn-nl.mncdn.com/dogusdyg_ntv/live_1080p5000000kbps/index.m3u8?st=2w-pCpQZ5pHyBz7FRA8p1w&e=1751105949
+https://mn-nl.mncdn.com/dogusdyg_ntv/live_1080p5000000kbps/index.m3u8?st=swDLX1-7lksrY8VLMHUnRQ&e=1751109307
 #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1500000,RESOLUTION=1280x720
-https://mn-nl.mncdn.com/dogusdyg_ntv/live_720p1500000kbps/index.m3u8?st=2w-pCpQZ5pHyBz7FRA8p1w&e=1751105949
+https://mn-nl.mncdn.com/dogusdyg_ntv/live_720p1500000kbps/index.m3u8?st=swDLX1-7lksrY8VLMHUnRQ&e=1751109307
 #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=900000,RESOLUTION=854x480
-https://mn-nl.mncdn.com/dogusdyg_ntv/live_480p90000kbps/index.m3u8?st=2w-pCpQZ5pHyBz7FRA8p1w&e=1751105949
+https://mn-nl.mncdn.com/dogusdyg_ntv/live_480p90000kbps/index.m3u8?st=swDLX1-7lksrY8VLMHUnRQ&e=1751109307
 
